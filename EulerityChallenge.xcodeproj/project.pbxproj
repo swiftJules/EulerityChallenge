@@ -64,9 +64,9 @@
 				C979674C27EA6012004CC7E4 /* EulerityChallengeApp.swift */,
 				C979674E27EA6012004CC7E4 /* ContentView.swift */,
 				C979675A27EA6164004CC7E4 /* DataRequester.swift */,
+				C979676227EA6232004CC7E4 /* Constants.swift */,
 				C979675027EA6013004CC7E4 /* Assets.xcassets */,
 				C979675227EA6013004CC7E4 /* Preview Content */,
-				C979676227EA6232004CC7E4 /* Constants.swift */,
 			);
 			path = EulerityChallenge;
 			sourceTree = "<group>";
