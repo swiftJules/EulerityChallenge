@@ -2,7 +2,7 @@
 //  ImageModel.swift
 //  EulerityChallenge
 //
-//  Created by Rave Bizz on 3/22/22.
+//  Created by Juliana Connors on 3/22/22.
 //
 
 import Foundation
