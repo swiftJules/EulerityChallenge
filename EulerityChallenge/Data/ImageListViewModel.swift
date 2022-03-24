@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+class ImageListViewModel: ObservableObject {
+    @Published var images =  [ImageModel]()
+    
+    init() {
+        DataRequester.shared.fetchData() { imageModels in
+            DispatchQueue.main.async {
+                self.images = imageModels
+            }
+        }
+    }
+}
