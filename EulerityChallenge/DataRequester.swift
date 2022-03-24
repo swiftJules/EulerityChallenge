@@ -15,13 +15,7 @@ class DataRequester {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data else { return }
             if let result = try? JSONDecoder().decode([ImageModel].self, from: data) {
-                print(result)
-                var imageModels: [ImageModel] = []
-                for (index, model) in result.enumerated() {
-                    let imageModel = ImageModel(id: index, url: model.url)
-                    imageModels.append(imageModel)
-                }
-                closure(imageModels)
+                closure(result)
             }
         }.resume()
     }
