@@ -1,16 +1,14 @@
 //
-//  ImageViewModel.swift
+//  ImageListViewModel.swift
 //  EulerityChallenge
 //
-//  Created by Juliana Connors on 3/22/22.
+//  Created by Rave Bizz on 3/24/22.
 //
 
-import Combine
 import Foundation
 
-class ViewModel: ObservableObject {
+class ImageListViewModel: ObservableObject {
     @Published var images =  [ImageModel]()
-    private var cancellableSet: Set<AnyCancellable> = []
     
     init() {
         DataRequester.shared.fetchData() { imageModels in
