@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct ImageList: View {
+    @ObservedObject var viewModel = ImageListViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct ImageList_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageList()
+        NavigationView {
+            List {
+                ForEach(viewModel.images) { image in
+                    let imageViewModel = ImageDetailViewModel(model: image)
+                    NavigationLink(destination: ImageDetail(viewModel: imageViewModel)) {
+                        ImageView(viewModel: imageViewModel)
+                    }
+                }
+            }
+        }
     }
 }
