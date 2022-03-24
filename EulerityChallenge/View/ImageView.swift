@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct ImageView: View {
+    let viewModel: ImageDetailViewModel?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if let viewModel = viewModel {
+            AsyncImage(url: URL(string: viewModel.url)!) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+            } placeholder: {
+                Image(systemName: "photo.circle.fill")
+                    .resizable()
+                    .scaledToFit()
+            }
+        }
     }
 }
 
-struct ImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageView()
-    }
-}
+//struct ImageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ImageView()
+//    }
+//}
