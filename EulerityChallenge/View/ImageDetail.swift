@@ -5,16 +5,13 @@
 //  Created by Rave Bizz on 3/23/22.
 //
 
+import CoreImage
 import SwiftUI
 
 struct ImageDetail: View {
+    let viewModel: ImageDetailViewModel?
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ImageView(viewModel: viewModel)
     }
 }
 
-struct ImageDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageDetail()
-    }
-}
