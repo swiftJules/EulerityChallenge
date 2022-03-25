@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ImageDetailViewModel {
     let model: ImageModel?
@@ -17,4 +18,10 @@ class ImageDetailViewModel {
     var url: String {
         model?.url ?? ""
     }
+    
+    var image: UIImage? {
+        let image = ImageCache.shared.read(imageStr: url)
+        return image
+    }
+
 }

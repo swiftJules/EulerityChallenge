@@ -6,12 +6,15 @@
 //
 
 import CoreImage
+import PencilKit
 import SwiftUI
 
 struct ImageDetail: View {
     let viewModel: ImageDetailViewModel?
     var body: some View {
-        ImageView(viewModel: viewModel)
+        FilterCarousel(image: viewModel?.image)
+        Spacer()
+        ImageEditor()
     }
 }
 

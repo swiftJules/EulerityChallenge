@@ -16,7 +16,19 @@ struct ImageList: View {
                 ForEach(viewModel.images) { image in
                     let imageViewModel = ImageDetailViewModel(model: image)
                     NavigationLink(destination: ImageDetail(viewModel: imageViewModel)) {
-                        ImageView(viewModel: imageViewModel)
+                        AsyncImage(url: URL(string: imageViewModel.url)!) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 75, height: 75)
+                        } placeholder: {
+                            Image(systemName: "photo.circle.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 75, height: 75)
+                        }
+                        
+                        //ImageView(viewModel: imageViewModel)
                     }
                 }
             }
