@@ -11,16 +11,10 @@ struct ImageView: View {
     let viewModel: ImageDetailViewModel?
     
     var body: some View {
-        if let viewModel = viewModel {
-            AsyncImage(url: URL(string: viewModel.url)!) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-            } placeholder: {
-                Image(systemName: "photo.circle.fill")
-                    .resizable()
-                    .scaledToFit()
-            }
+        if let image = viewModel?.image {
+            Image(uiImage: image)
+                .resizable()
+                .scaledToFit()
         }
     }
 }
