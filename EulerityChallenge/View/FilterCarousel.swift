@@ -9,14 +9,16 @@ import CoreImage
 import SwiftUI
 
 struct FilterCarousel: View {
-    let currentFilters = CIFilter.filterNames(inCategories: [kCICategoryColorEffect])
+    //let currentFilters = CIFilter.filterNames(inCategories: [kCICategoryColorEffect])
+    let filters = ["CISepiaTone", "CIPhotoEffectNoir", "CIPhotoEffectChrome", "CIColorMonochrome"]
+    
     let image: UIImage?
     
     var body: some View {
         if let image = image {
             ScrollView(.horizontal) {
                 HStack(spacing: 10) {
-                    ForEach(currentFilters, id: \.self) { filterStr in
+                    ForEach(filters, id: \.self) { filterStr in
                         let filter = CIFilter(name: filterStr)
                         FilterImage(uiImage: image, filter: filter)
                     }
