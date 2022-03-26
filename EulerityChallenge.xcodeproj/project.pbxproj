@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8AFFFCCAAF30DD17E4762D4B /* Pods_EulerityChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4C36C8A4BD3A1E0DC05F8C /* Pods_EulerityChallenge.framework */; };
 		C979674D27EA6012004CC7E4 /* EulerityChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979674C27EA6012004CC7E4 /* EulerityChallengeApp.swift */; };
 		C979674F27EA6012004CC7E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979674E27EA6012004CC7E4 /* ContentView.swift */; };
 		C979675127EA6013004CC7E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C979675027EA6013004CC7E4 /* Assets.xcassets */; };
@@ -27,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6622B113949828279929CF28 /* Pods-EulerityChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EulerityChallenge.release.xcconfig"; path = "Target Support Files/Pods-EulerityChallenge/Pods-EulerityChallenge.release.xcconfig"; sourceTree = "<group>"; };
+		71C7F2C0F2B68B0C223AC0BD /* Pods-EulerityChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EulerityChallenge.debug.xcconfig"; path = "Target Support Files/Pods-EulerityChallenge/Pods-EulerityChallenge.debug.xcconfig"; sourceTree = "<group>"; };
+		BE4C36C8A4BD3A1E0DC05F8C /* Pods_EulerityChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EulerityChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C979674927EA6012004CC7E4 /* EulerityChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EulerityChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C979674C27EA6012004CC7E4 /* EulerityChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EulerityChallengeApp.swift; sourceTree = "<group>"; };
 		C979674E27EA6012004CC7E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,17 +56,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AFFFCCAAF30DD17E4762D4B /* Pods_EulerityChallenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		789485E6E0C1019A2D2A39C7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				71C7F2C0F2B68B0C223AC0BD /* Pods-EulerityChallenge.debug.xcconfig */,
+				6622B113949828279929CF28 /* Pods-EulerityChallenge.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C979674027EA6012004CC7E4 = {
 			isa = PBXGroup;
 			children = (
 				C979674B27EA6012004CC7E4 /* EulerityChallenge */,
 				C979674A27EA6012004CC7E4 /* Products */,
+				789485E6E0C1019A2D2A39C7 /* Pods */,
+				F1824990A929329DC87D9C2F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +147,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		F1824990A929329DC87D9C2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE4C36C8A4BD3A1E0DC05F8C /* Pods_EulerityChallenge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,9 +162,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C979675727EA6013004CC7E4 /* Build configuration list for PBXNativeTarget "EulerityChallenge" */;
 			buildPhases = (
+				B5887B3D66059D0F4D1C70F6 /* [CP] Check Pods Manifest.lock */,
 				C979674527EA6012004CC7E4 /* Sources */,
 				C979674627EA6012004CC7E4 /* Frameworks */,
 				C979674727EA6012004CC7E4 /* Resources */,
+				375FCEBA587A439A412156F7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -194,6 +221,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		375FCEBA587A439A412156F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EulerityChallenge/Pods-EulerityChallenge-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EulerityChallenge/Pods-EulerityChallenge-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EulerityChallenge/Pods-EulerityChallenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5887B3D66059D0F4D1C70F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EulerityChallenge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C979674527EA6012004CC7E4 /* Sources */ = {
@@ -339,6 +408,7 @@
 		};
 		C979675827EA6013004CC7E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71C7F2C0F2B68B0C223AC0BD /* Pods-EulerityChallenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -368,6 +438,7 @@
 		};
 		C979675927EA6013004CC7E4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6622B113949828279929CF28 /* Pods-EulerityChallenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
