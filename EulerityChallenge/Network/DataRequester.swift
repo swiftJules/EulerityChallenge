@@ -5,18 +5,25 @@
 //  Created by Juliana Connors on 3/22/22.
 //
 
+import Alamofire
+import Combine
 import Foundation
 
 class DataRequester {
     static let shared = DataRequester()
     
-    func fetchData(closure: @escaping ([ImageModel]) -> Void) {
-        guard let url = URL(string: NetworkConstants.dataURL) else { return }
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data else { return }
-            if let result = try? JSONDecoder().decode([ImageModel].self, from: data) {
-                closure(result)
+    func fetchData() -> AnyPublisher<DataResponse<[ImageModel], Error>, Never> {
+        let url = URL(string: NetworkConstants.dataURL)!
+        return AF.request(url,
+                          method: .get)
+            .validate()
+            .publishDecodable(type: [ImageModel].self)
+            .map { response in
+                response.mapError { error in
+                    return error
+                }
             }
-        }.resume()
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 }
