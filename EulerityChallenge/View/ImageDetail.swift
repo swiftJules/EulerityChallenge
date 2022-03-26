@@ -12,9 +12,20 @@ import SwiftUI
 struct ImageDetail: View {
     let viewModel: ImageDetailViewModel?
     var body: some View {
-        FilterCarousel(image: viewModel?.image)
-        Spacer()
-        ImageEditor()
+        VStack {
+            FilterCarousel(image: viewModel?.image)
+            //ImageView(viewModel: viewModel)
+            //ZStack{
+            ImageEditor(image: viewModel?.image)
+            //}
+        } //: VSTACK
+        .toolbar(content: {
+            Button {
+                // save image action
+            } label: {
+                Text("Save")
+            }
+        })
     }
 }
 
