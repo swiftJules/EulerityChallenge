@@ -13,22 +13,19 @@ struct ImageList: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(viewModel.images) { image in
-                    let imageViewModel = ImageDetailViewModel(model: image)
-                    NavigationLink(destination: ImageDetail(viewModel: imageViewModel)) {
-                        AsyncImage(url: URL(string: imageViewModel.url)!) { image in
-                            image
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 75, height: 75)
-                        } placeholder: {
-                            Image(systemName: "photo.circle.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 75, height: 75)
+                if let viewModel = viewModel {
+                    ForEach(viewModel.detailViewModels) { detailViewModel in
+                        NavigationLink(destination: ImageDetail(viewModel: detailViewModel)) {
+                            AsyncImage(url: URL(string: detailViewModel.url)!) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                            } placeholder: {
+                                Image(systemName: "photo.circle.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                            }
                         }
-                        
-                        //ImageView(viewModel: imageViewModel)
                     }
                 }
             }

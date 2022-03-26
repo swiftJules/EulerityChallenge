@@ -5,24 +5,36 @@
 //  Created by Rave Bizz on 3/24/22.
 //
 
-import Foundation
+import Combine
 import UIKit
 
-class ImageListViewModel: ObservableObject, Identifiable {
-    @Published var images =  [ImageModel]()
+class ImageListViewModel: ObservableObject {
+    @Published var detailViewModels =  [ImageDetailViewModel]()
+    private var cancellableSet: Set<AnyCancellable> = []
     
     init() {
-        DataRequester.shared.fetchData() { imageModels in
-            DispatchQueue.main.async {
-                self.images = imageModels
-                self.fetchImages()
-            }
-        }
+        fetchData()
+    }    
+    
+    func fetchData() {
+        DataRequester.shared.fetchData()
+            .sink { (dataResponse) in
+                if dataResponse.error != nil {
+                    // handle error
+                } else {
+                    guard let imageModels = dataResponse.value else { return }
+                    let detailViewModels = imageModels.map { model in
+                        ImageDetailViewModel(model: model)
+                    }
+                    self.detailViewModels = detailViewModels
+                    self.fetchImages()
+                }
+            }.store(in: &cancellableSet)
     }
     
     func fetchImages() {
-        for model in images {
-            ImageRequester.shared.fetchImage(imageStr: model.url)
+        for viewModel in detailViewModels {
+            ImageRequester.shared.fetchImage(viewModel: viewModel)
         }
     }
 }
