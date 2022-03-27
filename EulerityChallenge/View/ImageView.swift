@@ -11,8 +11,8 @@ struct ImageView: View {
     let viewModel: ImageDetailViewModel?
     
     var body: some View {
-        if let image = viewModel?.image {
-            Image(uiImage: image)
+        if let data = viewModel?.imageData, let uiImage = UIImage(data: data) {
+            Image(uiImage: uiImage)
                 .resizable()
                 .scaledToFit()
         }
