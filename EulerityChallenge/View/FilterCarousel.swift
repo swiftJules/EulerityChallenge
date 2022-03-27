@@ -12,24 +12,24 @@ struct FilterCarousel: View {
     //let currentFilters = CIFilter.filterNames(inCategories: [kCICategoryColorEffect])
     let filters = ["CISepiaTone", "CIPhotoEffectNoir", "CIPhotoEffectChrome", "CIColorMonochrome"]
     
-    let image: UIImage?
+    let imageData: Data?
     
     var body: some View {
-        if let image = image {
+        if let imageData = imageData {
             ScrollView(.horizontal) {
                 HStack(spacing: 10) {
                     ForEach(filters, id: \.self) { filterStr in
                         let filter = CIFilter(name: filterStr)
-                        FilterImage(uiImage: image, filter: filter)
+                        let image = UIImage(data: imageData)
+                        Button {
+                            //action
+                        } label: {
+                            FilterImage(uiImage: image, filter: filter)
+                        } //:BUTTON
                     }
-                }.padding()
-            }
+                } //:HSTACK
+                .padding()
+            } //:SCROLLVIEW
         }
     }
 }
-
-//struct FilterCarousel_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FilterCarousel()
-//    }
-//}
