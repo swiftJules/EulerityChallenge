@@ -23,8 +23,8 @@ class ImageDetailViewModel: Identifiable {
     }
     
     var image: UIImage? {
-        let image = ImageCache.shared.read(imageStr: url)
-        return image
+        guard let imageData = imageData else { return nil }
+        return UIImage(data: imageData)
     }
     
     var imageData: Data?
