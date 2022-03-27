@@ -10,14 +10,15 @@ import PencilKit
 import SwiftUI
 
 struct ImageDetail: View {
+    @StateObject var model = DrawingViewModel()
     let viewModel: ImageDetailViewModel?
     var body: some View {
         VStack {
-            FilterCarousel(image: viewModel?.image)
-            //ImageView(viewModel: viewModel)
-            //ZStack{
-            ImageEditor(image: viewModel?.image)
-            //}
+            FilterCarousel(imageData: viewModel?.imageData)
+                .padding(0)
+            ImageView(viewModel: viewModel)
+            Spacer()
+            //ImageEditor().environmentObject(model)
         } //: VSTACK
         .toolbar(content: {
             Button {
